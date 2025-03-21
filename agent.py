@@ -6,13 +6,6 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.prebuilt import create_react_agent
 
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", api_key=os.getenv("GOOGLE_API_KEY"))
-
 checkpointer = InMemorySaver()
 
 prompt = """
@@ -33,11 +26,11 @@ Follow these steps when fulfilling user request:
 6. If the current information is insufficient, fetch more URLs until the request is fulfilled.
 
 ## Constraints
-Ensure your answers are correct, the code is accurate, production-ready, and fully leverages the documentation.
-
+- Ensure your answers are correct, the code is accurate, production-ready, and fully leverages the documentation.
+- Do NOT just provide example code, give actual implementation.
 """
 @asynccontextmanager
-async def make_graph():
+async def make_graph(model):
     async with MultiServerMCPClient(
         {
             "docs_mcp": {
