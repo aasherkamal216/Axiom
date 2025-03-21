@@ -21,16 +21,16 @@ async def on_message(message: cl.Message):
 
 
     msg = cl.Message(content="fdasfasdf")  # Initialize an empty message for streaming
-
+    await msg.send()
     try:
         async with make_graph() as agent:
             async for stream, metadata in agent.astream({"messages": message.content}, config=config, stream_mode="messages"):
                 print(stream, metadata)
                 if isinstance(stream, AIMessageChunk) and stream.content:
+                    
+                    await msg.stream_token(stream.content)
                     print("working here=========")
-                    # await msg.stream_token(stream.content)
-
-                # await msg.send()
+            await msg.send()
 
         await msg.send()
     except Exception as e:
