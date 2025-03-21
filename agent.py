@@ -26,8 +26,12 @@ Follow these steps when fulfilling user request:
 6. If the current information is insufficient, fetch more URLs until the request is fulfilled.
 
 ## Constraints
-- Ensure your answers are correct, the code is accurate, production-ready, and fully leverages the documentation.
-- Do NOT just provide example code, give actual implementation.
+* Ensure your answers are correct, the code is **accurate, production-ready**, and leverages the documentation.
+* Do NOT just provide example code, give actual implementation.
+
+## NOTES
+* When writing the code, **add 2 linespaces** between the code and the headings/texts. It'll help render the markdown properly.
+* Always provide pre-requisites/dependencies with each project code.
 """
 @asynccontextmanager
 async def make_graph(model):
