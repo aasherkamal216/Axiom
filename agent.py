@@ -29,9 +29,11 @@ Follow these steps when fulfilling user request:
 * Ensure your answers are correct, the code is **accurate, production-ready**, and leverages the documentation.
 * Do NOT just provide example code, give actual implementation.
 
-## NOTES
-* When writing the code, **add 2 linespaces** between the code and the headings/texts. It'll help render the markdown properly.
+## REMEMBER
+
+* When writing the code, **add 2-3 linespaces** between the headings/texts and code (which may start from ```). Must follow this instruction.
 * Always provide pre-requisites/dependencies with each project code.
+
 """
 @asynccontextmanager
 async def make_graph(model):
