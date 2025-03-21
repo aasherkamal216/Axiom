@@ -20,7 +20,7 @@ async def on_message(message: cl.Message):
     config = {"configurable": {"thread_id": thread_id}}
 
 
-    msg = cl.Message(content="")  # Initialize an empty message for streaming
+    msg = cl.Message(content="fdasfasdf")  # Initialize an empty message for streaming
 
     try:
         async with make_graph() as agent:
@@ -30,7 +30,7 @@ async def on_message(message: cl.Message):
                     print("working here=========")
                     await msg.stream_token(stream.content)
 
-            await msg.send()
+                await msg.send()
 
 
     except Exception as e:
