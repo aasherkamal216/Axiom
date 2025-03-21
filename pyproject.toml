@@ -12,4 +12,5 @@ dependencies = [
     "langgraph>=0.3.18",
     "mcpdoc>=0.0.4",
     "python-dotenv>=1.0.1",
+    "websockets>=15.0.1",
 ]

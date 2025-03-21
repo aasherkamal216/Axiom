@@ -19,9 +19,7 @@ cache = false
 allow_origins = ["*"]
 
 [server]
-host = "0.0.0.0"
-port = 7860
-enable_websockets = true
+transports = ["websocket"]
 
 [features]
 # Process and display HTML in messages. This can be a security risk (see https://stackoverflow.com/questions/19603097/why-is-it-dangerous-to-render-user-generated-html-or-javascript)
