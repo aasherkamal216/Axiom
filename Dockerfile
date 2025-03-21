@@ -40,4 +40,4 @@ EXPOSE 8082
 EXPOSE 7860
 
 # Run the two required commands concurrently using bash process control
-CMD ["bash", "-c", "uv run mcpdoc --urls LangGraph:https://langchain-ai.github.io/langgraph/llms.txt CrewAI:https://docs.crewai.com/llms.txt --transport sse --port 8082 --host localhost & uv run chainlit run app.py --port 7860 --host 0.0.0.0 --enable-websockets"]
+CMD ["bash", "-c", "uv run mcpdoc --urls LangGraph:https://langchain-ai.github.io/langgraph/llms.txt CrewAI:https://docs.crewai.com/llms.txt --transport sse --port 8082 --host localhost & uv run chainlit run app.py --port 7860 --host 0.0.0.0"]
