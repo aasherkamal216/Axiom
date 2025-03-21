@@ -60,14 +60,10 @@ async def on_message(message: cl.Message):
     try:
         async with make_graph(model) as agent:
             async for stream, metadata in agent.astream({"messages": message.content}, config=config, stream_mode="messages"):
-                print(stream, metadata)
-                if isinstance(stream, AIMessageChunk) and stream.content:
-                    
-<<<<<<< HEAD
+
+                if isinstance(stream, AIMessageChunk) and stream.content:   
                     await msg.stream_token(stream.content.replace("```", "\n```"))
-=======
-                    await msg.stream_token(stream.content.replace("```", "\n\n```"))
->>>>>>> b26fdf7569189c2785ba6d2b9d7d70f975119218
             await msg.send()
+
     except Exception as e:
         await cl.Message(content=f"Error during agent invocation: {e}").send()
