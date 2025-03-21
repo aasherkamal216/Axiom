@@ -2,7 +2,7 @@
 import chainlit as cl
 from agent import make_graph
 
-from langchain_core.messages import AIMessageChunk, ToolMessage
+from langchain_core.messages import AIMessageChunk
 import uuid
 
 @cl.on_chat_start
@@ -11,8 +11,6 @@ async def on_chat_start():
     thread_id = f"thread-{uuid.uuid4()}"
 
     cl.user_session.set("thread_id", thread_id)
-
-    await cl.Message(content="Hello! You can start chatting with the AI.").send()
 
 @cl.on_message
 async def on_message(message: cl.Message):
@@ -30,10 +28,6 @@ async def on_message(message: cl.Message):
 
                 if isinstance(stream, AIMessageChunk) and stream.content:
                     await msg.stream_token(stream.content)
-                elif isinstance(stream, ToolMessage) and stream.content:
-                    async with cl.Step(type="tool") as step:
-
-                        step.output = stream.content
 
             await msg.send()
 
