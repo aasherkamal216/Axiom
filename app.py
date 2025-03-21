@@ -25,7 +25,7 @@ async def on_message(message: cl.Message):
     try:
         async with make_graph() as agent:
             async for stream, metadata in agent.astream({"messages": message.content}, config=config, stream_mode="messages"):
-
+                print(stream, metadata)
                 if isinstance(stream, AIMessageChunk) and stream.content:
                     await msg.stream_token(stream.content)
 
