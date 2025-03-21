@@ -28,13 +28,8 @@ async def on_message(message: cl.Message):
                 if isinstance(stream, AIMessageChunk) and stream.content:
                     
                     await msg.stream_token(stream.content)
-                    print("working here=========")
-            await cl.Message(content=stream.content).send()
 
+            await cl.Message(content=stream.content).send()
+            print("working here=========")
     except Exception as e:
         await cl.Message(content=f"Error during agent invocation: {e}").send()
-
-@cl.on_stop
-async def on_stop():
-    agent = cl.user_session.get("agent")
-    await agent.__aexit__(None, None, None)
