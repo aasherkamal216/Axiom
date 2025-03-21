@@ -29,9 +29,8 @@ async def on_message(message: cl.Message):
                     
                     await msg.stream_token(stream.content)
                     print("working here=========")
-            await msg.send()
+            await cl.Message(content=stream.content).send()
 
-        await msg.send()
     except Exception as e:
         await cl.Message(content=f"Error during agent invocation: {e}").send()
 
