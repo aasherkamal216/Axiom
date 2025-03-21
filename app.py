@@ -8,9 +8,10 @@ import uuid
 @cl.on_chat_start
 async def on_chat_start():
 
-    thread_id = f"thread-123"
+    thread_id = f"thread-{uuid.uuid4()}"
 
     cl.user_session.set("thread_id", thread_id)
+    await cl.Message(content="Helloo").send()
 
 @cl.on_message
 async def on_message(message: cl.Message):
