@@ -8,13 +8,12 @@ import uuid
 @cl.on_chat_start
 async def on_chat_start():
 
-    thread_id = f"thread-{uuid.uuid4()}"
+    thread_id = f"thread-123"
 
     cl.user_session.set("thread_id", thread_id)
 
 @cl.on_message
 async def on_message(message: cl.Message):
-    agent = cl.user_session.get("agent")  # Retrieve the agent from user session
     thread_id = cl.user_session.get("thread_id")  # Retrieve the user-specific thread ID
 
     config = {"configurable": {"thread_id": thread_id}}
