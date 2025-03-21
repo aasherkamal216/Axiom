@@ -27,6 +27,7 @@ async def on_message(message: cl.Message):
             async for stream, metadata in agent.astream({"messages": message.content}, config=config, stream_mode="messages"):
                 print(stream, metadata)
                 if isinstance(stream, AIMessageChunk) and stream.content:
+                    print("working here=========")
                     await msg.stream_token(stream.content)
 
             await msg.send()
