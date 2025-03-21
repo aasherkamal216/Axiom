@@ -10,7 +10,7 @@ RUN apt-get update && \
     mkdir -p /.cache/uv
 
 # Copy project configuration first
-COPY pyproject.toml .
+COPY pyproject.toml .  
 
 # Install Python packages as root using uv sync
 RUN uv sync && \
@@ -32,7 +32,8 @@ ENV HOME=/home/user \
 WORKDIR $HOME/app
 
 # Copy application files with correct ownership
-COPY --chown=user:user . .
+COPY --chown=user:user ./app.py ./app.py
+COPY --chown=user:user . .  
 
 # Expose the necessary ports
 EXPOSE 8082
