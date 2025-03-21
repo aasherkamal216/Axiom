@@ -11,7 +11,6 @@ async def on_chat_start():
     thread_id = f"thread-{uuid.uuid4()}"
 
     cl.user_session.set("thread_id", thread_id)
-    await cl.Message(content="Helloo").send()
 
 @cl.on_message
 async def on_message(message: cl.Message):
@@ -20,8 +19,8 @@ async def on_message(message: cl.Message):
     config = {"configurable": {"thread_id": thread_id}}
 
 
-    msg = cl.Message(content="fdasfasdf")  # Initialize an empty message for streaming
-    await msg.send()
+    msg = cl.Message(content="")  # Initialize an empty message for streaming
+
     try:
         async with make_graph() as agent:
             async for stream, metadata in agent.astream({"messages": message.content}, config=config, stream_mode="messages"):
@@ -29,8 +28,6 @@ async def on_message(message: cl.Message):
                 if isinstance(stream, AIMessageChunk) and stream.content:
                     
                     await msg.stream_token(stream.content)
-
-            await cl.Message(content=stream.content).send()
-            print("working here=========")
+            await msg.send()
     except Exception as e:
         await cl.Message(content=f"Error during agent invocation: {e}").send()
