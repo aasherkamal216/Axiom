@@ -28,11 +28,11 @@ async def on_message(message: cl.Message):
                 print(stream, metadata)
                 if isinstance(stream, AIMessageChunk) and stream.content:
                     print("working here=========")
-                    await msg.stream_token(stream.content)
+                    # await msg.stream_token(stream.content)
 
-                await msg.send()
+                # await msg.send()
 
-
+        await msg.send()
     except Exception as e:
         await cl.Message(content=f"Error during agent invocation: {e}").send()
 
