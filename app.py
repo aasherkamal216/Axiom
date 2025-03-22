@@ -12,6 +12,33 @@ from dotenv import load_dotenv
 
 _ : bool = load_dotenv()
 
+#################################
+# Quick Starter Questions
+#################################
+@cl.set_starters
+async def set_starters():
+    return [
+        cl.Starter(
+            label="LangGraph Chatbot Creation",
+            message="Create a chatbot in LangGraph. Give it web access using tavily tool.",
+            icon="/public/msg_icons/chatbot.png",
+            ),
+
+        cl.Starter(
+            label="Explain MCP",
+            message="Explain Model Context Protocol (MCP) to a non-tech person.",
+            icon="/public/msg_icons/usb.png",
+            ),
+        cl.Starter(
+            label="Composio Tools Integration",
+            message="How can I connect Composio tools to my agent built with LangGraph?",
+            icon="/public/msg_icons/tools.png",
+            ),
+
+        ]
+#################################
+# Encoding Images 
+#################################
 async def process_image(image: cl.Image):
     """
     Processes an image file, reads its data, and converts it to a base64 encoded string.
@@ -30,6 +57,9 @@ async def process_image(image: cl.Image):
         print(f"Error reading image file: {e}")
         return {"type": "text", "text": f"Error processing image {image.name}."}
 
+#################################
+# Chat Settings
+#################################
 @cl.on_chat_start
 async def on_chat_start():
     thread_id = f"thread-{uuid.uuid4()}"
@@ -66,6 +96,9 @@ async def on_chat_start():
     # Store model in session
     cl.user_session.set("model", model)
 
+#################################
+# Processing Messages
+#################################
 @cl.on_message
 async def on_message(message: cl.Message):
     thread_id = cl.user_session.get("thread_id")  # Retrieve the user-specific thread ID
