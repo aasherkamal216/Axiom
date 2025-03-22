@@ -1,0 +1,18 @@
+- name: LangGraph Python
+  llms_txt: https://langchain-ai.github.io/langgraph/llms.txt
+
+- name: CrewAI
+  llms_txt: https://docs.crewai.com/llms.txt
+
+- name: Model Context Protocol
+  llms_txt: https://modelcontextprotocol.io/llms.txt
+
+- name: Chainlit
+  llms_txt: https://docs.chainlit.io/llms.txt
+
+- name: FastHTML
+  llms_txt: https://fastht.ml/docs/llms.txt
+
+- name: Supabase
+  llms_txt: https://supabase.com/llms.txt
+
