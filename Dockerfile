@@ -32,12 +32,11 @@ ENV HOME=/home/user \
 WORKDIR $HOME/app
 
 # Copy application files with correct ownership
-COPY --chown=user:user ./app.py ./app.py
-COPY --chown=user:user . .  
+COPY --chown=user:user . .
 
 # Expose the necessary ports
 EXPOSE 8082
 EXPOSE 7860
 
 # Run the two required commands concurrently using bash process control
-CMD ["bash", "-c", "uv run mcpdoc --yaml docs_config.yaml --transport sse --port 8082 --host localhost & uv run chainlit run app.py -h --port 7860 --host 0.0.0.0"]
+CMD ["bash", "-c", "uv run mcpdoc --yaml docs_config.yaml --transport sse --port 8082 --host localhost & uv run chainlit run src/axiom/app.py -h --port 7860 --host 0.0.0.0"]

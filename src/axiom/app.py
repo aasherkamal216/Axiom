@@ -58,6 +58,9 @@ async def set_starters():
 
         ]
 
+#################################
+# Response modes for Axiom
+#################################
 @cl.set_chat_profiles
 async def chat_profile():
     return [
@@ -72,7 +75,6 @@ async def chat_profile():
 
         ),
     ]
-
 
 #################################
 # Chat Settings
@@ -124,7 +126,6 @@ async def on_message(message: cl.Message):
     # Get model & chat profile from session
     model = cl.user_session.get("model", "gemini-2.0-flash")
     answer_mode = cl.user_session.get("chat_profile", "Agent Mode")
-    print("=======", type(answer_mode))
 
     # Prepare the content list for the current message
     content = []
