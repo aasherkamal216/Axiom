@@ -2,39 +2,14 @@
 from contextlib import asynccontextmanager
 
 from langchain_mcp_adapters.client import MultiServerMCPClient
-from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.prebuilt import create_react_agent
 
+from prompts import DOCS_AGENT_PROMPT
+
+# Initialize checkpointer
 checkpointer = InMemorySaver()
 
-prompt = """
-## Role
-You are an AI Developer specializing in AI frameworks, capable of creating Agents, chatbots, and Retrieval-Augmented Generation (RAG) systems.
-
-## Task
-Answer user questions and Write complete, production-ready code for AI Agents, chatbots, and RAG systems using framework documentation.
-
-## Instructions
-Follow these steps when fulfilling user request:
-
-1. Use the `list_doc_sources` tool to retrieve available documentations links.
-2. Call `fetch_docs` tool to analyze the content of the documentaion.
-3. Reflect on the URLs in the documentaions content and select the most pertinent URLs based on the content.
-4. Call `fetch_docs` tool on the selected URLs.
-5. Provide a clear and complete response to the user.
-6. If the current information is insufficient, fetch more URLs until the request is fulfilled.
-
-## Constraints
-* Ensure your answers are correct, the code is **accurate, production-ready**, and leverages the documentation.
-* Do NOT just provide example code, give actual implementation.
-
-## REMEMBER
-
-* When writing the code, **add 2-3 linespaces** between the headings/texts and code (which may start from ```). Must follow this instruction.
-* Always provide pre-requisites/dependencies with each project code.
-
-"""
 @asynccontextmanager
 async def make_graph(model):
     async with MultiServerMCPClient(
@@ -49,7 +24,7 @@ async def make_graph(model):
         agent = create_react_agent(
             model, 
             client.get_tools(), 
-            prompt=prompt, 
+            prompt=DOCS_AGENT_PROMPT, 
             checkpointer=checkpointer)
 
         yield agent
