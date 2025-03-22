@@ -1,14 +1,28 @@
-# Welcome to Chainlit! 🚀🤖
+# Docs Expert Agent
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
+An AI-powered documentation assistant built with LangGraph, MCP Docs, Chainlit and Gemini, designed to help users create different projects using natural language.
 
-## Useful Links 🔗
+## Features
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
+- 🤖 Interactive chat interface
+- 📚 Access to multiple documentation sources
+- 🎨 Support for image processing and analysis
+- 📈 Use images and graphs to create production-ready code
+- 🛠️ Customizable model settings (temperature, model version)
+- 🌐 Docker support for containerized deployment
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
+## Documentation Sources
 
-## Welcome screen
+The agent has access to following documentations:
+- LangGraph Python
+- CrewAI
+- Model Context Protocol (MCP)
+- Chainlit
+- FastHTML
+- Supabase
 
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+## Project Code
+
+You can access the GitHub repository here: 
+
+🔹[Docs Expert Agent](https://github.com/aasherkamal216/Docs_Expert_Agent)
