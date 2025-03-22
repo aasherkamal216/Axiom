@@ -49,8 +49,8 @@ edit_message = true
     # 3. For specific file extensions:
     #    accept = { "application/octet-stream" = [".xyz", ".pdb"] }
     # Note: Using "*/*" is not recommended as it may cause browser warnings
-    accept = ["image/*"]
-    max_files = 3
+    accept = ["image/jpeg", "image/png", "image/webp", "image/jpg"]
+    max_files = 2
     max_size_mb = 5
 
 [features.audio]
