@@ -13,31 +13,7 @@ from dotenv import load_dotenv
 _ : bool = load_dotenv()
 
 #################################
-# Quick Starter Questions
-#################################
-@cl.set_starters
-async def set_starters():
-    return [
-        cl.Starter(
-            label="LangGraph Chatbot Creation",
-            message="Create a chatbot in LangGraph. Give it web access using tavily tool.",
-            icon="/public/msg_icons/chatbot.png",
-            ),
-
-        cl.Starter(
-            label="Explain MCP",
-            message="Explain Model Context Protocol (MCP) to a non-tech person.",
-            icon="/public/msg_icons/usb.png",
-            ),
-        cl.Starter(
-            label="Composio Tools Integration",
-            message="How can I connect Composio tools to my agent built with LangGraph?",
-            icon="/public/msg_icons/tools.png",
-            ),
-
-        ]
-#################################
-# Encoding Images 
+# Function to Encode Images 
 #################################
 async def process_image(image: cl.Image):
     """
@@ -56,6 +32,47 @@ async def process_image(image: cl.Image):
     except Exception as e:
         print(f"Error reading image file: {e}")
         return {"type": "text", "text": f"Error processing image {image.name}."}
+
+#################################
+# Quick Starter Questions
+#################################
+@cl.set_starters
+async def set_starters():
+    return [
+        cl.Starter(
+            label="LangGraph Chatbot Creation",
+            message="Create a chatbot in LangGraph. Give it web access using tavily tool.",
+            icon="/public/msg_icons/chatbot.png",
+            ),
+
+        cl.Starter(
+            label="Explain MCP",
+            message="Explain Model Context Protocol (MCP) to a non-tech person.",
+            icon="/public/msg_icons/usb.png",
+            ),
+        cl.Starter(
+            label="Composio Tools Integration",
+            message="How can I connect Composio tools to my agent?",
+            icon="/public/msg_icons/tools.png",
+            ),
+
+        ]
+
+@cl.set_chat_profiles
+async def chat_profile():
+    return [
+        cl.ChatProfile(
+            name="Agent Mode",
+            markdown_description= "Ideal for complex tasks like brainstorming, code generation, and web apps creation."
+
+        ),
+        cl.ChatProfile(
+            name="Chat Mode",
+            markdown_description="Suited for quick information retrieval and answering questions from the provided documentations."
+
+        ),
+    ]
+
 
 #################################
 # Chat Settings
@@ -97,15 +114,17 @@ async def on_chat_start():
     cl.user_session.set("model", model)
 
 #################################
-# Processing Messages
+# Processing User Messages
 #################################
 @cl.on_message
 async def on_message(message: cl.Message):
     thread_id = cl.user_session.get("thread_id")  # Retrieve the user-specific thread ID
-
-    # Get model & config from session
-    model = cl.user_session.get("model", "gemini-2.0-flash")
     config = {"configurable": {"thread_id": thread_id}}
+
+    # Get model & chat profile from session
+    model = cl.user_session.get("model", "gemini-2.0-flash")
+    answer_mode = cl.user_session.get("chat_profile", "Agent Mode")
+    print("=======", type(answer_mode))
 
     # Prepare the content list for the current message
     content = []
@@ -126,8 +145,8 @@ async def on_message(message: cl.Message):
     msg = cl.Message(content="")  # Initialize an empty message for streaming
 
     try:
-        async with make_graph(model) as agent:
-            async for stream, metadata in agent.astream(
+        async with make_graph(model, answer_mode) as agent:
+            async for stream, _ in agent.astream(
                 {"messages": HumanMessage(content=content)}, 
                 config=config, 
                 stream_mode="messages"
