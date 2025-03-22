@@ -16,3 +16,21 @@
 - name: Supabase
   llms_txt: https://supabase.com/llms.txt
 
+- name: Pinecone
+  llms_txt: https://docs.pinecone.io/llms.txt
+
+- name: Composio
+  llms_txt: https://docs.composio.dev/llms.txt
+
+- name: Mem0
+  llms_txt: https://docs.mem0.ai/llms.txt
+
+- name: Zep
+  llms_txt: https://help.getzep.com/llms.txt
+
+- name: Clerk Auth
+  llms_txt: https://clerk.com/docs/llms.txt
+
+- name: Stack Auth
+  llms_txt: https://docs.stack-auth.com/llms.txt
+
