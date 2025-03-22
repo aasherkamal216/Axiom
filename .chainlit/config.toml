@@ -59,7 +59,7 @@ edit_message = true
 
 [UI]
 # Name of the assistant.
-name = "Docs Agent"
+name = "Axiom"
 
 # default_theme = "light"
 

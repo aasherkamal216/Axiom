@@ -36,7 +36,7 @@
         "dark": {
             "--font-sans": "'Inter', sans-serif",
             "--font-mono": "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
-            "--background": "0 0% 10%",
+            "--background": "0 0% 8%",
             "--foreground": "0 0% 93%",
             "--card": "0 0% 16%",
             "--card-foreground": "210 40% 98%",

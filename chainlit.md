@@ -1,4 +1,4 @@
-# Docs Expert Agent
+# Axiom - A Docs Expert Agent
 
 An AI-powered documentation assistant built with LangGraph, MCP Docs, Chainlit and Gemini, designed to help users create different projects using natural language.
 
@@ -20,9 +20,15 @@ The agent has access to following documentations:
 - Chainlit
 - FastHTML
 - Supabase
+- Pinecone
+- Composio
+- Clerk Auth
+- Stack Auth
+- Mem0
+- Zep
 
 ## Project Code
 
 You can access the GitHub repository here: 
 
-🔹[Docs Expert Agent](https://github.com/aasherkamal216/Docs_Expert_Agent)
+🔹[Axiom](https://github.com/aasherkamal216/Axiom)
