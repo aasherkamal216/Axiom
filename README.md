@@ -1,8 +1,8 @@
 ---
-title: Documentations Agent
+title: Axiom Agent
 emoji: 🏢
-colorFrom: purple
-colorTo: yellow
+colorFrom: blue
+colorTo: green
 sdk: docker
 pinned: false
 ---
