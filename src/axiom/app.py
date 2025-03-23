@@ -7,14 +7,14 @@ from langchain_core.messages import AIMessageChunk, HumanMessage
 
 from chainlit.input_widget import Select, Slider
 
+from typing import Optional
 import os, uuid, base64
 from dotenv import load_dotenv
 
 _ : bool = load_dotenv()
 
-#################################
+
 # Function to Encode Images 
-#################################
 async def process_image(image: cl.Image):
     """
     Processes an image file, reads its data, and converts it to a base64 encoded string.
@@ -32,6 +32,19 @@ async def process_image(image: cl.Image):
     except Exception as e:
         print(f"Error reading image file: {e}")
         return {"type": "text", "text": f"Error processing image {image.name}."}
+
+#################################
+# User Authentication
+#################################
+@cl.oauth_callback
+def oauth_callback(
+  provider_id: str,
+  token: str,
+  raw_user_data: dict[str, str],
+  default_user: cl.User,
+) -> Optional[cl.User]:
+
+  return default_user
 
 #################################
 # Quick Starter Questions
