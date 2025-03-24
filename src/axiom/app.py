@@ -54,7 +54,7 @@ async def set_starters():
     return [
         cl.Starter(
             label="LangGraph Chatbot Creation",
-            message="Create a chatbot in LangGraph. Give it web access using tavily tool.",
+            message="Create an Agent in LangGraph which can search the web using Tavily.",
             icon="/public/msg_icons/chatbot.png",
             ),
 
