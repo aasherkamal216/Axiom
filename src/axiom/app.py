@@ -53,7 +53,7 @@ def oauth_callback(
 async def set_starters():
     return [
         cl.Starter(
-            label="LangGraph Chatbot Creation",
+            label="LangGraph Agent Creation",
             message="Create an Agent in LangGraph which can search the web using Tavily.",
             icon="/public/msg_icons/chatbot.png",
             ),
