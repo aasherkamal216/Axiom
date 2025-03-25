@@ -34,3 +34,5 @@
 - name: Stack Auth
   llms_txt: https://docs.stack-auth.com/llms.txt
 
+- name: Stripe
+  llms_txt: https://docs.stripe.com/llms.txt
