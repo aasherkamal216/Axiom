@@ -64,7 +64,11 @@ uv sync
 ```bash
 cp .env.example .env
 ```
-Add your API keys in `.env` file. 
+Add your API keys and other credentials in `.env` file. 
+
+> [! NOTE]
+> If you want to disable authentication, you can remove `chainlit.yaml` file. 
+> Also remove the Oauth Callback function from `src/axiom/app.py`.
 
 ## Usage
 ### Run the application:
