@@ -36,3 +36,12 @@
 
 - name: Stripe
   llms_txt: https://docs.stripe.com/llms.txt
+
+- name: Resend
+  llms_txt: https://resend.com/docs/llms.txt
+
+- name: Upstash
+  llms_txt: https://upstash.com/docs/llms.txt
+
+- name: Netlify
+  llms_txt: https://docs.netlify.com/llms.txt

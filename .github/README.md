@@ -1,6 +1,6 @@
 # Axiom - A Docs Expert Agent
 
-Axiom is AI Agent specialized in modern AI frameworks, libraries and tools. It can assist in creating AI Agents, RAG systems, chatbots, authentication mechanisms, and even full-stack development. It is built with LangGraph, MCP Docs Server, Chainlit and Gemini, designed to help users create different projects using natural language instructions.
+Axiom is AI Agent specialized in modern AI frameworks, libraries and tools. It can assist in creating AI Agents, RAG systems, chatbots, authentication mechanisms, and even full-stack development. It is built with LangGraph, **MCP Docs Server**, Chainlit and Gemini, designed to help users create different projects using natural language instructions.
 
 ![AxiomAgent](/public/axiom.png)
 
@@ -25,10 +25,14 @@ The agent has access to following documentations:
 - Supabase
 - Pinecone
 - Composio
-- Clerk Auth
-- Stack Auth
 - Mem0
 - Zep
+- Stripe
+- Resend
+- Upstash
+- Netlify
+- Clerk Auth
+- Stack Auth
 
 ## Prerequisites
 
