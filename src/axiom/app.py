@@ -2,6 +2,7 @@
 import chainlit as cl
 from agent import make_graph
 
+from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import AIMessageChunk, HumanMessage
 
@@ -12,7 +13,6 @@ import os, uuid, base64
 from dotenv import load_dotenv
 
 _ : bool = load_dotenv()
-
 
 # Function to Encode Images 
 async def process_image(image: cl.Image):
@@ -104,7 +104,14 @@ async def on_chat_start():
             Select(
                 id="model",
                 label="Gemini - Model",
-                values=["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-2.0-pro-exp"],
+                values=[
+                    "deepseek/deepseek-chat-v3-0324", 
+                    "deepseek/deepseek-r1:free", 
+                    "google/gemini-2.0-flash:free", 
+                    "google/gemini-2.0-pro-exp-02-05:free", 
+                    "google/gemini-exp-1206:free", 
+                    "google/gemini-2.5-pro-exp-03-25:free"
+                    ],
                 initial_index=0,
             ),
             Slider(
@@ -119,9 +126,10 @@ async def on_chat_start():
     ).send()
 
     # Create model with given settings
-    model = ChatGoogleGenerativeAI(
-        model=settings["model"], 
-        api_key=os.getenv("GOOGLE_API_KEY"),
+    model = ChatOpenAI(
+        model=settings["model"],
+        api_key=os.getenv("OPENROUTER_API_KEY"),
+        base_url="https://openrouter.ai/api/v1",
         temperature=settings["temperature"]
         )
 
