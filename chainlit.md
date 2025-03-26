@@ -1,6 +1,6 @@
 # Axiom - A Docs Expert Agent
 
-Axiom is AI Agent specialized in modern AI frameworks, libraries and tools. It can assist in creating AI Agents, RAG systems, chatbots, authentication mechanisms, and even full-stack development. It is built with LangGraph, MCP Docs Server, Chainlit and OpenRouter Models, designed to help users create different projects using natural language instructions.
+Axiom is AI Agent specialized in modern AI frameworks, libraries and tools. It can assist in creating AI Agents, RAG systems, chatbots, authentication mechanisms, and even full-stack development. It is built with LangGraph, MCP Docs Server, Chainlit and Gemini Models, designed to help users create different projects using natural language instructions.
 
 ## Features
 
@@ -9,7 +9,7 @@ Axiom is AI Agent specialized in modern AI frameworks, libraries and tools. It c
     - **Agent Mode:** Ideal for complex tasks like brainstorming, code generation, and web apps creation.
     - **Chat Mode:** Suited for quick information retrieval and answering questions from the provided documentations.
 - 📚 Access to multiple documentation sources
-- 🦾 Support for multiple models using OpenRouter unified API
+- 🦾 Support for multiple Gemini models
 - 🎨 Support for image processing and analysis
 - 📈 Use images and graphs to create production-ready code
 - 🛠️ Customizable model settings (temperature, model version)
