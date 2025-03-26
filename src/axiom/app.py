@@ -106,7 +106,6 @@ async def on_chat_start():
                 values=[
                     "gemini-2.0-flash", 
                     "gemini-2.0-flash-lite",
-                    "gemini-2.0-pro-exp-02-05", 
                     "gemini-exp-1206", 
                     "gemini-2.5-pro-exp-03-25"
                     ],
@@ -142,7 +141,7 @@ async def on_message(message: cl.Message):
     config = {"configurable": {"thread_id": thread_id}}
 
     # Get model & chat profile from session
-    model = cl.user_session.get("model", "gemini-2.0-flash")
+    model = cl.user_session.get("model")
     answer_mode = cl.user_session.get("chat_profile", "Agent Mode")
 
     # Prepare the content list for the current message
