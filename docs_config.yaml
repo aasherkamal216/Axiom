@@ -45,3 +45,6 @@
 
 - name: Netlify
   llms_txt: https://docs.netlify.com/llms.txt
+
+- name: Unsloth AI
+  llms_txt: https://docs.unsloth.ai/llms.txt
