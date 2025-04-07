@@ -7,6 +7,9 @@
 - name: Model Context Protocol
   llms_txt: https://modelcontextprotocol.io/llms.txt
 
+- name: Google Gemini
+  llms_txt: https://geminibyexample.com/llms.txt
+
 - name: Chainlit
   llms_txt: https://docs.chainlit.io/llms.txt
 
