@@ -4,7 +4,7 @@
 - name: CrewAI
   llms_txt: https://docs.crewai.com/llms.txt
 
-- name: Agno
+- name: Agno (formerly Phi-data)
   llms_txt: https://docs.agno.com/llms.txt
 
 - name: Model Context Protocol
@@ -34,6 +34,9 @@
 - name: Zep
   llms_txt: https://help.getzep.com/llms.txt
 
+- name: Firecrawl
+  llms_txt: https://docs.firecrawl.dev/llms.txt
+  
 - name: Clerk Auth
   llms_txt: https://clerk.com/docs/llms.txt
 
