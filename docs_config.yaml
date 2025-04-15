@@ -4,6 +4,9 @@
 - name: CrewAI
   llms_txt: https://docs.crewai.com/llms.txt
 
+- name: Agno
+  llms_txt: https://docs.agno.com/llms.txt
+
 - name: Model Context Protocol
   llms_txt: https://modelcontextprotocol.io/llms.txt
 
