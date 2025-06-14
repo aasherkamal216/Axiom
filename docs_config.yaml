@@ -34,6 +34,9 @@
 - name: Zep
   llms_txt: https://help.getzep.com/llms.txt
 
+- name: Resend
+  llms_txt: https://resend.com/docs/llms.txt
+  
 - name: Firecrawl
   llms_txt: https://docs.firecrawl.dev/llms.txt
   
