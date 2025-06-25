@@ -10,6 +10,9 @@
 - name: Model Context Protocol
   llms_txt: https://modelcontextprotocol.io/llms.txt
 
+- name: PixelTable
+  llms_txt: https://docs.pixeltable.com/llms.txt
+
 - name: Google Gemini
   llms_txt: https://geminibyexample.com/llms.txt
 
