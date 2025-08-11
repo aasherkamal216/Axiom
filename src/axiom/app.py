@@ -106,7 +106,7 @@ async def on_chat_start():
                 values=[
                     "gemini-2.5-flash",
                     "gemini-2.5-pro", 
-                    "gemini-2.0-flash-lite"
+                    "gemini-2.5-flash-lite"
                     ],
                 initial_index=0,
             ),
@@ -128,8 +128,18 @@ async def on_chat_start():
         temperature=settings["temperature"]
         )
 
-    # Store model in session
+    # Store model and temperature in session
     cl.user_session.set("model", model)
+    cl.user_session.set("temperature", settings["temperature"])
+
+#################################
+# Settings Update
+#################################
+@cl.on_settings_update
+async def on_settings_update(settings: dict):
+    # Update user session with new settings
+    cl.user_session.set("model", settings.get("model"))
+    cl.user_session.set("temperature", settings.get("temperature"))
 
 #################################
 # Processing User Messages
